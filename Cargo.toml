@@ -1,5 +1,6 @@
 [package]
 name = "pwwizard"
+description = "A CLI password generator"
 version = "0.1.0"
 edition = "2021"
 authors = ["AredSwanIAm <j.ekomalet@gmail.com>"]
