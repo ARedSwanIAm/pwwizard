@@ -1,7 +1,8 @@
+use divrem::DivCeil;
 use rand::{self, Rng};
 
 fn main() {
-    let mut yn = "";
+    let mut yn: &str = "";
     if pwwizard::get_cmdla().special {
         yn = "";
     } else {
@@ -23,7 +24,7 @@ fn main() {
     let mut rng = rand::thread_rng();
 
     let pass_len = pwwizard::get_cmdla().length;
-    let chars_num = pass_len / 4_u8;
+    let chars_num = pass_len.div_ceil(4_u8);
     let (reduced_passlen, mut included_nums) =
         pwwizard::pick_chars(pass_len.clone(), numbers, chars_num);
     let (reduced_passlen, mut included_lowers) =

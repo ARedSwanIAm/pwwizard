@@ -1,4 +1,5 @@
 pub use clap::Parser;
+pub use divrem::DivCeil;
 pub use rand::{self, seq::SliceRandom, Rng};
 
 #[derive(Parser, Debug)]
@@ -21,8 +22,8 @@ pub fn pick_chars(
     chars_str: &'static str,
     mut chars_num: u8,
 ) -> (u8, Vec<&'static str>) {
-    /// chars_num is the length that the component (exemple specail
-    /// characters) will be
+    // chars_num is the length that the component (exemple special
+    // characters) will be
     // gen random chars and don't exceed pass len
     let mut password_str: Vec<&str> = vec![];
 
@@ -39,7 +40,7 @@ pub fn pick_chars(
         ); // !! iterate vec and select get multiple
         chars_num -= 1;
     }
-    (pass_len - pass_len / 4_u8, password_str) //LOGIC?
+    ((pass_len - pass_len).div_ceil(4_u8), password_str) //LOGIC?
 }
 
 /// randomize the order of all character in the password
@@ -55,7 +56,7 @@ pub fn randomise_password<'a>(password: Vec<&'a str>) -> Vec<&'a str> {
 // TEST --------------------------------------------------------
 /// Unit test
 #[cfg(test)]
-mod UnitTest {
+mod unit_test {
     use super::*;
     #[test]
     //#[ignore]

@@ -1,9 +1,9 @@
 [package]
 name = "pwwizard"
 description = "A CLI password generator"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
-authors = ["AredSwanIAm <j.ekomalet@gmail.com>"]
+authors = ["felsel <j.ekomalet@gmail.com>"]
 categories = ["command-line-utilities"]
 keywords = [
   "git",
@@ -18,4 +18,5 @@ readme = "README.md"
 
 [dependencies]
 clap = {version = "3.1.18", features = ["derive"]}
+divrem = "1.0.0"
 rand = "0.8.5"
